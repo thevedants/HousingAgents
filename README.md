@@ -111,6 +111,11 @@ pip install langchain-community
 2. Google Cloud Vision API key (for OCR functionality)
 
 ## Usage
+Using the local version is recommended as it has been tested and shows best results. Website usage is still buggy and is discouraged. The limitations and upgrades needed are explained in further depth below.
+
+Local Interface
+- Change the file paths and API keys as mentioned in the code
+  
 Web Interface
 1. Run the main application
  ```bash
@@ -165,7 +170,9 @@ Fill in API Keys and File names wherever requested.
 - Limited error handling in some components  
 - Some experimental features are incomplete  
 - Template format assumptions may not work for all CACI forms
-
+- Usage: The web applications are currently functional but need significant updates before production use as they have the following limitations:
+- Document Formatting Issues: The generated text from Gemini is returned in a JSON styling format but needs proper conversion to a fully styled Word document with correct paragraph formatting, fonts, and layout.
+- Single Form Processing: The web interface currently processes only one hardcoded CACI form (CACI 101 - Overview of Trial) per request. 
 ---
 
 ## Suggested Improvements
@@ -179,6 +186,12 @@ Fill in API Keys and File names wherever requested.
 
 - Implement comprehensive error handling  
 - Add input validation for uploaded files
+
+### Website Upgrades
+- Automatically assess the LA CIV 244 document to identify all required forms
+- Process multiple forms in a loop based on the checked/selected options
+- Generate a complete document with all necessary CACI instructions
+
 
 ### Code Organization
 
