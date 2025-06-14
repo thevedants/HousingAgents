@@ -9,7 +9,7 @@ from google import genai
 from google.genai import types
 
 # Set up the API key and client
-api_key = "AIzaSyAQtSELrheQ1szjk8oBBJAxq0RXgRdpWvg"
+api_key = "ADD API KEY"
 client = genai.Client(api_key=api_key)
 
 def analyze_pdf_with_gemini(pdf_path, prompt_text, api_key):
@@ -107,11 +107,11 @@ def color_from_hex(hexstr):
 
 def generate_content(caci_forms):
     """Generate content for multiple CACI forms and combine them into one document"""
-    api_key = "AIzaSyAQtSELrheQ1szjk8oBBJAxq0RXgRdpWvg"
+    api_key = "ADD API KEY"
     client = genai.Client(api_key=api_key)
     
     # Get the case information from the PDF
-    filepath = pathlib.Path("/Users/thevedantsingh/Desktop/SLS/D004 - UD 105 - Specific Denials LA - Kyle Answer.pdf")
+    filepath = pathlib.Path("UD 105 Path")
     prompt = 'Give me all information you have about the case'
     response = client.models.generate_content(
         model="gemini-2.0-flash-exp",
@@ -126,7 +126,7 @@ def generate_content(caci_forms):
     cont = response.text
     
     # Upload the template structure
-    myfile = client.files.upload(file="/Users/thevedantsingh/Desktop/SLS/output.txt")
+    myfile = client.files.upload(file="Template txt file; output.txt")
     
     # Create a new document to hold all forms
     combined_doc = Document()
@@ -216,7 +216,7 @@ def generate_content(caci_forms):
 
 def main():
     # Set up templates and directories
-    template_path = "/Users/thevedantsingh/Desktop/SLS/Jury Instruction Template MASTER - 2022 - LAFLA.docx"
+    template_path = "Master LAFLA Template"
     template_data = analyze_template(template_path)
     
     # Save template data to a file for reference by the Gemini model
@@ -226,8 +226,8 @@ def main():
             out.write("\n")  # Newline after each paragraph
     
     # Identify forms that need to be filled
-    api_key = "AIzaSyAQtSELrheQ1szjk8oBBJAxq0RXgRdpWvg"
-    pd_path = "/Users/thevedantsingh/Desktop/SLS/LACIV244 - Breach of Covenant LAFLA.pdf"
+    api_key = "ADD API KEY"
+    pd_path = "LA CIV PDF"
     prompt = f"""Analyse the given LA CIV 244 submission and then identify all the forms that need to be filled based on whatever defenses/forms
     are ticked/checked in the LA CIV. Then return your output in json format, with each record having two keys, the keys being CACI Number and Jury Instructions. Make sure every form that is checked/ticked is included. I need no other output."""
     

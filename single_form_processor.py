@@ -10,11 +10,11 @@ import PIL
 
 
 # Set up the API key and client
-api_key = "AIzaSyAQtSELrheQ1szjk8oBBJAxq0RXgRdpWvg"
+api_key = "ADD API KEY"
 client = genai.Client(api_key=api_key)
 
 # Replace this with your actual local PDF path
-filepath = pathlib.Path("/Users/thevedantsingh/Desktop/SLS/D004 - UD 105 - Specific Denials LA - Kyle Answer.pdf")
+filepath = pathlib.Path("UD 105 Path")
 
 # Read the local PDF and send it to Gemini
 prompt = 'Give me all information you have about the case'
@@ -67,7 +67,7 @@ def analyze_template(template_path):
         json.dump(template_data, f, indent=2)
 
 
-analyze_template("/Users/thevedantsingh/Desktop/SLS/Jury Instruction Template MASTER - 2022 - LAFLA.docx")
+analyze_template("Template LAFLA Master")
 import json
 with open("template_blueprint.json") as f:
     data = json.load(f)
@@ -78,9 +78,9 @@ with open("output.txt", "w", encoding="utf-8") as out:
         out.write("\n")  # Newline after each paragraph
 
 def generate_content():
-    api_key = "AIzaSyAQtSELrheQ1szjk8oBBJAxq0RXgRdpWvg"
+    api_key = "ADD API KEY"
     client = genai.Client(api_key=api_key)
-    myfile = client.files.upload(file="/Users/thevedantsingh/Desktop/SLS/output.txt")
+    myfile = client.files.upload(file="template file output.txt")
     # Build prompt with formatting context
     prompt = f"""Legal Document Generation Task:
     Fill in the CACI template for this given CACI form using the provided context: "CACI Number": "101", "Jury Instructions": "Overview of Trial". Use this as context: {cont} to fill the form placeholders. Use the context and fill in placeholder such as defendant/plaintiff/city/address. Make your best guess for the placeholders. I want to see all placeholders filled. Dont output anything else. Keep the output in the same format as the input. JSON format, with the same attributes as the provided doc, you only need to change the text as you see fit.

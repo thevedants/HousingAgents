@@ -175,7 +175,7 @@ def process():
         output_path = os.path.join(temp_dir, 'final_output.docx')
         
         # Set up the API key
-        api_key = "AIzaSyAQtSELrheQ1szjk8oBBJAxq0RXgRdpWvg"  # Replace with your actual API key
+        api_key = "ADD API KEY"  # Replace with your actual API key
         client = genai.Client(api_key=api_key)
         filepath = pathlib.Path(case_path)
         prompt = 'Give me all information you have about the case'

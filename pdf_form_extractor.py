@@ -1,6 +1,6 @@
 from PyPDF2 import PdfReader
 
-reader = PdfReader("/Users/thevedantsingh/Desktop/SLS/LACIV244 - Breach of Covenant LAFLA.pdf")
+reader = PdfReader("LA CIV PDF")
 
 fields = reader.get_fields()
 

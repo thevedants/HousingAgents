@@ -3,17 +3,14 @@ from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import google.generativeai as genai
 import google.auth
-
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import google.generativeai as genai
-
 class DocumentRetriever:
     def __init__(self, pdf_path: str):
         self.pdf_path = pdf_path
         credentials, project = google.auth.default()
         self.model = genai.GenerativeModel('text-embedding-004')
-
         genai.configure(api_key=None, credentials=credentials)
         self.chunks = []
         self.embeddings = []
@@ -35,7 +32,7 @@ class DocumentRetriever:
             self.embeddings.append(result.embeddings)
 
 retriever = DocumentRetriever(
-    pdf_path="/Users/thevedantsingh/Desktop/SLS/relevant.pdf"
+    pdf_path="Template PDF; relevant.pdf"
 )
 
 # Process the document

@@ -183,7 +183,7 @@ def process():
         import os
         import PIL
         # Set up the API key and client
-        api_key = "AIzaSyAQtSELrheQ1szjk8oBBJAxq0RXgRdpWvg"
+        api_key = "ADD API KEY"
         client = genai.Client(api_key=api_key)
         filepath = pathlib.Path(case_path)
         prompt = 'Give me all information you have about the case'
@@ -199,7 +199,7 @@ def process():
         )
         cont = response.text
         def generate_content():
-            api_key = "AIzaSyAQtSELrheQ1szjk8oBBJAxq0RXgRdpWvg"
+            api_key = "ADD API KEY"
             client = genai.Client(api_key=api_key)
             myfile = client.files.upload(file=template_path)
             # Build prompt with formatting context
